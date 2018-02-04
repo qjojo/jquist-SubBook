@@ -57,4 +57,8 @@ public class Subscription {
     public String getComment() {
         return comment;
     }
+
+    public String toString() {
+        return name;
+    }
 }

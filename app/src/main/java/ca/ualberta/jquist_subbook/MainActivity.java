@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -25,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         ListView list = (ListView) findViewById(R.id.mainList);
         ArrayList<Subscription> entries = new ArrayList<Subscription>();
 
-        Subscription testEntry = new Subscription();
+        Subscription testEntry = new Subscription("death", new Date(), 1.0, "pain");
         entries.add(testEntry);
 
         ArrayAdapter<Subscription> subAdapter =
