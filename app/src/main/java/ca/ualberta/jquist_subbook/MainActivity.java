@@ -22,12 +22,16 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        /*ListView list = (ListView) findViewById(R.id.mainList);
+        ListView list = (ListView) findViewById(R.id.mainList);
         ArrayList<Subscription> entries = new ArrayList<Subscription>();
+
+        Subscription testEntry = new Subscription();
+        entries.add(testEntry);
+
         ArrayAdapter<Subscription> subAdapter =
                 new ArrayAdapter<Subscription>(this, android.R.layout.simple_list_item_1, entries);
         list.setAdapter(subAdapter);
-*/
+
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override

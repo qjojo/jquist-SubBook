@@ -19,6 +19,13 @@ public class Subscription {
         comment = "";
     }
 
+    public Subscription(String n, Date s, double c, String cm) {
+        name = n;
+        start = s;
+        cost = c;
+        comment = cm;
+    }
+
     public void setName(String n) {
         name = n;
     }
