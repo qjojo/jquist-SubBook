@@ -31,8 +31,8 @@ public class MainActivity extends AppCompatActivity {
         Subscription testEntry = new Subscription("death", new Date(), 1.0, "pain");
         entries.add(testEntry);
 
-        ArrayAdapter<Subscription> subAdapter =
-                new ArrayAdapter<Subscription>(this, android.R.layout.simple_list_item_1, entries);
+        SubAdapter subAdapter =
+                new SubAdapter(this, entries);
         list.setAdapter(subAdapter);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
