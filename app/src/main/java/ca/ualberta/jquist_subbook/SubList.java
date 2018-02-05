@@ -16,6 +16,14 @@ public class SubList {
         list.add(s);
     }
 
+    public Subscription getSub(int i) {
+        return list.get(i);
+    }
+
+    public void editSub(int i, Subscription s) {
+        list.set(i, s);
+    }
+
     public ArrayList<Subscription> getList(){
         return list;
     }

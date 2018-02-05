@@ -20,7 +20,7 @@ public class EditActivity extends AppCompatActivity {
         setContentView(R.layout.activity_edit);
 
         Bundle b = getIntent().getExtras();
-        int key = b.getInt("key");
+        final int key = b.getInt("key");
 
         Button saveButton = findViewById(R.id.saveB);
 
@@ -28,7 +28,7 @@ public class EditActivity extends AppCompatActivity {
         final Subscription subscription;
 
         if(key != -1) {
-            subscription = new Subscription();
+            subscription = subscriptions.getSub(key);
         }
         else {
             subscription = new Subscription();
@@ -55,7 +55,11 @@ public class EditActivity extends AppCompatActivity {
                 }
                 subscription.setCost(Double.parseDouble(costText.getText().toString()));
                 subscription.setComment(commText.getText().toString());
-                subscriptions.addSub(subscription);
+                if(key != -1) {
+                    subscriptions.editSub(key, subscription);
+                } else {
+                    subscriptions.addSub(subscription);
+                }
                 if(end) {
                     finish();
                 }

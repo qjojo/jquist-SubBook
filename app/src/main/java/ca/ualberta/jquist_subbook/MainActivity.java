@@ -9,6 +9,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -25,18 +27,27 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         ListView list = (ListView) findViewById(R.id.mainList);
-        SubList subscriptions = new SubList();
+        final SubList subscriptions = new SubList();
         ArrayList<Subscription> entries = subscriptions.getList();
 
-        Subscription testEntry = new Subscription("death", new Date(), 1.0, "pain");
-        entries.add(testEntry);
-
-        SubAdapter subAdapter =
+        final SubAdapter subAdapter =
                 new SubAdapter(this, entries);
         list.setAdapter(subAdapter);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         final Intent editIntent = new Intent(this, EditActivity.class);
+
+        list.setOnItemClickListener(new OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                editIntent.putExtra("key", i);
+                startActivity(editIntent);
+                ArrayList<Subscription> entries = subscriptions.getList();
+                subAdapter.notifyDataSetChanged();
+            }
+        });
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
