@@ -25,7 +25,8 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         ListView list = (ListView) findViewById(R.id.mainList);
-        ArrayList<Subscription> entries = new ArrayList<Subscription>();
+        SubList subscriptions = new SubList();
+        ArrayList<Subscription> entries = subscriptions.getList();
 
         Subscription testEntry = new Subscription("death", new Date(), 1.0, "pain");
         entries.add(testEntry);
