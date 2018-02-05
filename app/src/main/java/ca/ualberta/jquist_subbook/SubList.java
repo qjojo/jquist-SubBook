@@ -7,10 +7,13 @@ import java.util.ArrayList;
  */
 
 public class SubList {
-    private static ArrayList<Subscription> list;
+    private static ArrayList<Subscription> list = new ArrayList<Subscription>();
 
     public SubList() {
-        list = new ArrayList<Subscription>();
+    }
+
+    public void addSub(Subscription s) {
+        list.add(s);
     }
 
     public ArrayList<Subscription> getList(){
